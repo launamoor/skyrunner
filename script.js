@@ -16,8 +16,8 @@ let hero = { x: gameWidth / 2 - unitSize / 2, y: gameHeight - unitSize * 2 };
 let isJumping = false;
 let jumpSpeed = 7;
 let xVelocity = 0;
-let jumpDistance = 0; // Track current jump distance
-const gravity = 9; // Adjust gravity as needed
+let jumpDistance = 0; // track current jump distance
+const gravity = 9;
 let heroSpeed = 0; // Current hero speed
 let maxSpeed = 12; // Max hero speed
 let acceleration = 0.5;
@@ -112,7 +112,7 @@ const runSpritesRight = []; // array to store animation frames
 // Load all run animation frames
 for (let i = 1; i <= 4; i++) {
   const img = new Image();
-  img.src = `./assets/hero${i}.png`; // Replace with your actual file names
+  img.src = `./assets/hero${i}.png`;
   runSpritesRight.push(img);
 }
 
@@ -120,7 +120,7 @@ const runSpritesLeft = []; // array to store animation frames
 // Load all run animation frames
 for (let i = 1; i <= 4; i++) {
   const img = new Image();
-  img.src = `./assets/hero${i}left.png`; // Replace with your actual file names
+  img.src = `./assets/hero${i}left.png`;
   runSpritesLeft.push(img);
 }
 
@@ -134,8 +134,6 @@ let shelfTimer;
 
 const startingPlatformImage = new Image();
 startingPlatformImage.src = "./assets/floor.png";
-
-// startingPlatformImage.onload = gameStart;
 
 window.addEventListener("keydown", keyDownHandler);
 window.addEventListener("keyup", keyUpHandler);
@@ -468,10 +466,10 @@ function drawHero() {
 function checkCollisions() {
   shelves.forEach((shelf) => {
     if (
-      hero.y + unitSize >= shelf.y && // Hero's bottom below or touching shelf's top
-      hero.y <= shelf.y + shelf.height && // Hero's top above or touching shelf's bottom
-      hero.x + unitSize >= shelf.x && // Hero's right side to the right of shelf's left side
-      hero.x <= shelf.x + shelf.width // Hero's left side to the left of shelf's right side
+      hero.y + unitSize >= shelf.y && // hero's bottom below or touching shelf's top
+      hero.y <= shelf.y + shelf.height && // hero's top above or touching shelf's bottom
+      hero.x + unitSize >= shelf.x && // hero's right side to the right of shelf's left side
+      hero.x <= shelf.x + shelf.width // hero's left side to the left of shelf's right side
     ) {
       // Hero collided with this shelf
       if (!jetpackInUse) handleCollision(shelf);
